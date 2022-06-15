@@ -43,7 +43,13 @@ async function addStudent() {
             const res = await client.query(SQLQuery)
             console.log(`Último registro agregado: ${stdtInfo[1]}, RUT: ${stdtInfo[4]} en curso de ${stdtInfo[2]}, nivel ${stdtInfo[3]}`)
         } catch (error) {
-            console.log('Error (addStudent): ', error.code)
+            console.log('Error externo de try catch: ', error.message)
+            console.log('Error código: ', error.code)
+            console.log('Detalle del error: ', error.detail)
+            console.log('Tabla originaria del error: ', error.table)
+            console.log('Restricción violada en el campo: ', error.constraint)
+
+//            console.log('Error (addStudent): ', error.code)
         }
         release()
         pool.end()
@@ -66,7 +72,13 @@ async function queryAll() {
             const res = await client.query(SQLQuery)
             console.log(`Registro total:`, res.rows)
         } catch (error) {
-            console.log('Error (queryAll): ', error.code)
+            console.log('Error externo de try catch: ', error.message)
+            console.log('Error código: ', error.code)
+            console.log('Detalle del error: ', error.detail)
+            console.log('Tabla originaria del error: ', error.table)
+            console.log('Restricción violada en el campo: ', error.constraint)
+
+            //            console.log('Error (queryAll): ', error.code)
         }
         release()
         pool.end()
@@ -93,7 +105,13 @@ async function queryStudent() {
             const res = await client.query(SQLQuery)
             console.log(`RUT consultado: ${stdtInfo[1]}\nDatos: `, res.rows[0])
         } catch (error) {
-            console.log('Error (queyStudent): ', error.code)
+            console.log('Error externo de try catch: ', error.message)
+            console.log('Error código: ', error.code)
+            console.log('Detalle del error: ', error.detail)
+            console.log('Tabla originaria del error: ', error.table)
+            console.log('Restricción violada en el campo: ', error.constraint)
+
+            //            console.log('Error (queyStudent): ', error.code)
         }
         release()
         pool.end()
@@ -130,7 +148,13 @@ async function updateStudent() {
             const res = await client.query(SQLQuery)
             console.log(`Usuario actualizado: ${stdtInfo[1]}\nDatos: `, res.row[0])
         } catch (error) {
-            console.log('Error (updateStudent): ', error.code)
+            console.log('Error externo de try catch: ', error.message)
+            console.log('Error código: ', error.code)
+            console.log('Detalle del error: ', error.detail)
+            console.log('Tabla originaria del error: ', error.table)
+            console.log('Restricción violada en el campo: ', error.constraint)
+
+            //            console.log('Error (updateStudent): ', error.code)
         }
         release()
         pool.end()
@@ -158,7 +182,13 @@ async function deleteStudent() {
             const res = await client.query(SQLQuery)
             console.log('RUT eliminado:', `${stdtInfo[1]}`)    
         } catch (error) {
-            console.log('Error (deleteStudent): ', error.code)
+            console.log('Error externo de try catch: ', error.message)
+            console.log('Error código: ', error.code)
+            console.log('Detalle del error: ', error.detail)
+            console.log('Tabla originaria del error: ', error.table)
+            console.log('Restricción violada en el campo: ', error.constraint)
+
+//            console.log('Error (deleteStudent): ', error.code)
         }
         release()
         pool.end()
